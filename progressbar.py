@@ -11,7 +11,7 @@ Usage:
     p.render(percentage, message)
 """
 
-import terminal
+from terminal import terminal
 import sys
 
 
