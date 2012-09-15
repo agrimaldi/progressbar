@@ -43,10 +43,11 @@ class ProgressBar(object):
         self.progress = None
         self.lines = 0
 
-    def render(self, percent, message=''):
+    def render(self, percent, message='', premessage=''):
         """Print the progress bar
         percent -- the progress percentage %
         message -- message string (optional)
+        premessage -- message string above the progress bar (optional)
         """
         inline_msg_len = 0
         if message:
