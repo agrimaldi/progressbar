@@ -18,7 +18,7 @@ import sys
 class ProgressBar(object):
     """Terminal progress bar class"""
     TEMPLATE = (
-        '\n\n%(percent)-2s%% %(color)s%(progress)s%(normal)s%(empty)s %(message)s\n'
+        '%(premessage)s\n\n%(percent)-2s%% %(color)s%(progress)s%(normal)s%(empty)s %(message)s\n'
     )
     PADDING = 7
 
