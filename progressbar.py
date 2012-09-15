@@ -18,7 +18,7 @@ import sys
 class ProgressBar(object):
     """Terminal progress bar class"""
     TEMPLATE = (
-        '\n\n%(percent)-2s%% %(color)s%(progress)s%(normal)s%(empty)s %(message)s\n'
+        '%(premessage)s\n\n%(percent)-2s%% %(color)s%(progress)s%(normal)s%(empty)s %(message)s\n'
     )
     PADDING = 7
 
@@ -43,10 +43,11 @@ class ProgressBar(object):
         self.progress = None
         self.lines = 0
 
-    def render(self, percent, message=''):
+    def render(self, percent, message='', premessage=''):
         """Print the progress bar
         percent -- the progress percentage %
         message -- message string (optional)
+        premessage -- message string above the progress bar (optional)
         """
         inline_msg_len = 0
         if message:
@@ -64,6 +65,7 @@ class ProgressBar(object):
             self.clear()
         self.progress = (bar_width * percent) / 100
         data = self.TEMPLATE % {
+            'premessage': premessage,
             'percent': percent,
             'color': self.color,
             'progress': self.block * self.progress,
